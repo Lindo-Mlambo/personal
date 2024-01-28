@@ -92,6 +92,10 @@ section#intro .profile-picture {
 .experience-item .description {
   max-width: 92%;
 }
+.experience-item .description ul {
+  margin: 0em 1.2em;
+  list-style-type: circle;
+}
 
 div.skills-container {
   display: flex;

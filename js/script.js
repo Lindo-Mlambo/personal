@@ -4,29 +4,28 @@ const experience = [
     organization: "Bowmans Law",
     role: "Developer - Financial Systems",
     dates: "Dec 2022 - Present",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aliquid maiores eos itaque esse necessitatibus voluptatem.",
+    description: `<ul><li>Implemented integrated systems and solutions strategies in response to business needs</li>
+      <li>Implemented customized solutions within the ERP system</li></ul>`,
   },
   {
     organization: "Advance (EPI-USE)",
     role: "Junior Software Engineer",
     dates: "Jan 2022 - Nov 2022",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aliquid maiores eos itaque esse necessitatibus voluptatem.",
+    description: `<ul><li>Strategic integrations using Cloud Elements for an Applicants Tracking System</li>
+      <li>Font-end developer in Flutter for an international Logistics company</li></ul>`,
   },
   {
     organization: "Advance (EPI-USE)",
     role: "Software Engineer - Intern",
     dates: "Jan 2021 - Dec 2021",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aliquid maiores eos itaque esse necessitatibus voluptatem.",
+    description: `<ul><li>Implemented a Spring-Boot microservice to generate reports and allow csv/excel file exports.</li>
+      <li>React Native developer for a WebRTC application</li></ul>`,
   },
   {
     organization: "Rock Street Productions",
     role: "Web Developer",
     dates: "2015 - Dec 2017",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aliquid maiores eos itaque esse necessitatibus voluptatem.",
+    description: `<ul><li>Worked on a client basis, built web systems using MySQL, PHP and HTML.</li></ul>`,
   },
 ];
 const skills = [
@@ -62,7 +61,7 @@ const renderExperience = (container, htmlTemplate, experienceObject) => {
   addTextToElement(clone, ".organization", experienceObject.organization);
   addTextToElement(clone, ".position strong", experienceObject.role);
   addTextToElement(clone, ".position span", experienceObject.dates);
-  addTextToElement(clone, ".description", experienceObject.description);
+  clone.querySelector(".description").innerHTML = experienceObject.description;
 
   container.appendChild(clone);
 };
