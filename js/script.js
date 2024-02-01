@@ -29,16 +29,27 @@ const experience = [
   },
 ];
 const skills = [
-  "Web Development",
-  "C#/.Net Web APIs",
-  "PHP",
-  "SQL",
-  "NodeJS",
-  "Angular",
-  "Adobe XD",
-  "Java",
-  "JavaScript",
-  "Azure DevOps",
+  {
+    proficiency: "Professional",
+    skillItems: ["HTML/CSS", "Bootstrap", "JavaScript"],
+  },
+  {
+    proficiency: "Intermediate",
+    skillItems: [
+      "C#/.Net Web APIs",
+      "PHP",
+      "SQL",
+      "NodeJS",
+      "Angular",
+      "Adobe XD",
+      "Java",
+      "Git",
+    ],
+  },
+  {
+    proficiency: "Elementary",
+    skillItems: ["React", "Vue", "Flutter"],
+  },
 ];
 
 window.onload = () => {
@@ -46,7 +57,7 @@ window.onload = () => {
   const experienceTemplate = $("#experience-tpl")[0];
   const experienceContainer = $(".experience-container")[0];
   const skillsTemplate = $("#skill-tpl")[0];
-  const skillsContainer = $(".skills-container")[0];
+  const skillsContainer = $(".skills-container ul")[0];
 
   experience.forEach((e) =>
     renderExperience(experienceContainer, experienceTemplate, e)
@@ -68,11 +79,22 @@ const renderExperience = (container, htmlTemplate, experienceObject) => {
 
 const renderSkill = (container, htmlTemplate, skill) => {
   const clone = htmlTemplate.content.cloneNode(true);
-  addTextToElement(clone, "span", skill);
+  addTextToElement(clone, "strong", `${skill.proficiency}:`);
+  skill.skillItems.forEach((s, index) => {
+    if (index < skill.skillItems.length - 1) {
+      addTextToElement(clone, "span", `${s},`, true);
+      return;
+    }
+    addTextToElement(clone, "span", `${s}`, true);
+  });
 
   container.appendChild(clone);
 };
 
-const addTextToElement = (parent, selectorQuery, text) => {
+const addTextToElement = (parent, selectorQuery, text, append = false) => {
+  if (append) {
+    parent.querySelector(selectorQuery).innerHTML += text;
+    return;
+  }
   parent.querySelector(selectorQuery).textContent = text;
 };

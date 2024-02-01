@@ -92,18 +92,34 @@ section#intro .profile-picture {
 .experience-item .description {
   max-width: 92%;
 }
-.experience-item .description ul {
+
+.experience-item .description ul, .skills-container ul {
   margin: 0em 1.2em;
   list-style-type: circle;
 }
 
 div.skills-container {
   display: flex;
+  flex-wrap: wrap;
   gap: .5em;
 }
-span.skill-item {
-  color: rgba(255, 255, 255, .87);
-  background-color: #444;
-  padding: .2em .4em;
-  border-radius: .2em;
+
+.interests-container {
+  display: flex;
+  gap: 1.5em;
+}
+div.interest-card {
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+  align-items: center;
+  /* border: 1px solid #ccc; */
+  border-radius: .5em;
+  padding: 1em;
+  font-family: 'Roboto', sans-serif;
+}
+div.interest-card span.fa, div.interest-card img {
+  color: #aaa;
+  font-size: 3.5em;
+  min-height: 48px;
 }
